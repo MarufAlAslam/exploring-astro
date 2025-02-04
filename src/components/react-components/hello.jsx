@@ -1,21 +1,46 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Hello = ({ name, age, location }) => {
-  const [text, setText] = React.useState(
-    `Hello!! I am ${name}, I am ${age} years old, and I'm from ${location}`
-  );
+  const textArray = [
+    `Hello! I am ${name}!!`,
+    `I am ${age} years old`,
+    `I am from ${location}`,
+  ];
+  const [text, setText] = React.useState(textArray[0]);
+  const [progressWidth, setProgressWidth] = React.useState(100);
+  useEffect(() => {
+    let i = 1;
+    const interval = setInterval(() => {
+      setText(textArray[i]);
+      i++;
+      if (i === textArray.length) {
+        clearInterval(interval);
+      }
+      // progress bar reduce smoothly to down
+      setProgressWidth((prev) => prev - 50);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [name, age, location]);
   return (
     <div>
-      <h2 className="text-6xl font-bold text-center text-white">{text}</h2>
+      {/* loader progress */}
+      <div className="progress w-full fixed top-0 left-0 h-[6px]">
+        <div
+          className={`progress-inner h-full bg-amber-400`}
+          style={{ width: progressWidth + "%" }}
+        ></div>
+      </div>
+      <h2 className="text-6xl font-bold mb-10 text-center text-white">
+        {text}
+      </h2>
 
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         onClick={() => {
-          setText("Hello!! I am a React Component");
-          console.log("Button clicked");
+          setText(textArray[0]);
         }}
       >
-        Click me
+        Reset
       </button>
     </div>
   );
