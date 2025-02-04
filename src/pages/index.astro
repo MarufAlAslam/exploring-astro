@@ -1,9 +1,16 @@
 ---
+import type { ACTION_ERROR_CODES } from "astro:actions";
 import Hello from "../components/react-components/hello";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+
+const userDetails = {
+  name: "maruf",
+  age: 27,
+  location: "Dhaka",
+};
 ---
 
 <Layout>
-  <Hello name="maruf" />
+  <Hello {...userDetails} />
 </Layout>
