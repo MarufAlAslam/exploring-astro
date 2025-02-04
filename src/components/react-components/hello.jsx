@@ -15,9 +15,13 @@ const Hello = ({ name, age, location }) => {
       i++;
       if (i === textArray.length) {
         clearInterval(interval);
+        // Restart the process
+        i = 0;
+        setProgressWidth(100);
+      } else {
+        // progress bar reduce smoothly to down
+        setProgressWidth((prev) => prev - 50);
       }
-      // progress bar reduce smoothly to down
-      setProgressWidth((prev) => prev - 50);
     }, 3000);
     return () => clearInterval(interval);
   }, [name, age, location]);
