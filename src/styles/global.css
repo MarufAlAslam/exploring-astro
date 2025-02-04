@@ -1,1 +1,30 @@
-@import "tailwindcss";
+@import "./tailwind.css";
+@import "./fonts.css";
+
+body {
+    background: linear-gradient(187deg, #008000 0%, #000000 100%);
+    animation: gradientBackground 5s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 100vh;
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+* {
+    font-family: "Chakra Petch", serif;
+}
