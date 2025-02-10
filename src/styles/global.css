@@ -1,7 +1,7 @@
 @import "./tailwind.css";
 @import "./fonts.css";
 
-body {
+/* body {
     background: linear-gradient(187deg, #008000 0%, #000000 100%);
     animation: gradientBackground 5s ease infinite;
     display: flex;
@@ -9,7 +9,7 @@ body {
     align-items: center;
     color: white;
     height: 100vh;
-}
+} */
 
 @keyframes gradientBackground {
     0% {

@@ -1,14 +1,8 @@
 ---
-import Hello from "../components/react-components/hello";
 import Layout from "../layouts/Layout.astro";
-
-const userDetails = {
-  name: "maruf",
-  age: 27,
-  location: "Dhaka",
-};
+import Banner from "../components/react-components/hero/";
 ---
 
 <Layout>
-  <Hello {...userDetails} client:load />
+  <Banner title={"Home"} />
 </Layout>
